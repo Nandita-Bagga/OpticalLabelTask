@@ -28,6 +28,7 @@ abs_grad_x=cv2.convertScaleAbs(grad_x)
 abs_grad_y=cv2.convertScaleAbs(grad_y)
 
 grad=cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0.5, 0)
-cv2.imshow('Chess final image',grad)
+ret, grad_final=cv2.threshold(grad, 127, 255, cv2.THRESH_BINARY)
+cv2.imshow('Chess final image',grad_final)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
